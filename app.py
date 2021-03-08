@@ -4,7 +4,7 @@ stat命令-查看文件的属性状态信息
 chmod命令-修改权限，chomd 777 test.txt
 """
 # 导入包
-from flask import Flask, url_for
+from flask import Flask, url_for, render_template
 # escape转义字符函数库
 from flask import escape
 
@@ -46,3 +46,26 @@ def test_url_for():
     # 下面这个调用传入了多余的关键字参数，它们会被作为查询字符串附加到 URL 后面。
     print(url_for('test_url_for', num=2))  # 输出：/test?num=2
     return 'Test page'
+
+
+name = 'Grey Li'
+movies = [
+    {'title': 'My Neighbor Totoro', 'year': '1988'},
+    {'title': 'Dead Poets Society', 'year': '1989'},
+    {'title': 'A Perfect World', 'year': '1993'},
+    {'title': 'Leon', 'year': '1994'},
+    {'title': 'Mahjong', 'year': '1996'},
+    {'title': 'Swallowtail Butterfly', 'year': '1996'},
+    {'title': 'King of Comedy', 'year': '1999'},
+    {'title': 'Devils on the Doorstep', 'year': '1999'},
+    {'title': 'WALL-E', 'year': '2008'},
+    {'title': 'The Pork of Music', 'year': '2012'},
+]
+
+
+# 使用render_template() 函数渲染模板
+# 第一个参数必须是传入的参数为模板文件名（相对于 templates 根目录的文件路径），这里即'index.html'。
+# 其它参数通过关键字参数传入函数，支持多种类型，列表、元组、字典、函数等。
+@app.route('/')
+def index():
+    return render_template('index.html', name=name, movies=movies)
