@@ -1,0 +1,13 @@
+{# extends 标签声明扩展自模板 base.html #}
+{% extends 'base.html' %}
+
+{% block content %}
+<ul class="movie-list">
+    <li>
+        Bad Request - 400
+        <span class="float-right">
+            <a href="{{ url_for('index') }}">Go Back</a>
+        </span>
+    </li>
+</ul>
+{% endblock %}

@@ -1,0 +1,14 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<h3>Login</h3>
+{#method属性指定HTTP请求方法为POST,默认GET#}
+<form method="post">
+    Username<br>
+    {#<input> 元素必须要指定name属性，否则无法提交数据，在服务器端，我们也需要通过这个name属性值来获取对应字段的数据。#}
+    <input type="text" name="username" required><br><br>
+    Password<br>
+    <input type="password" name="password" required><br><br>
+    <input class="btn" type="submit" name="submit" value="Submit">
+</form>
+{% endblock %}
